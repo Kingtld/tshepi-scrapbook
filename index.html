@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tshepi — a story that began with a conversation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ═══ MUSIC PLAYER ═══ -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="musicToggle" aria-label="Toggle music">
+      <i class="fas fa-music"></i>
+    </button>
+    <div class="music-info" id="musicInfo">
+      <span class="music-title">First Time — Teeks</span>
+      <span class="music-status" id="musicStatus">tap to play</span>
+    </div>
+    <audio id="bgMusic" loop preload="none">
+      <source src="" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- ═══ CURSOR TRAIL CONTAINER ═══ -->
+  <div id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- ═══ HEARTS CONTAINER ═══ -->
+  <div id="heartsContainer" aria-hidden="true"></div>
+
+  <!-- ═══ PAGE PROGRESS ═══ -->
+  <div class="page-progress" id="pageProgress">
+    <span class="page-label" id="pageLabel">Cover</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- ═══ MAIN SCRAPBOOK ═══ -->
+  <main class="scrapbook">
+
+    <!-- ═══════════════ SECTION 1: COVER ═══════════════ -->
+    <section id="cover" class="page cover-page" data-page="Cover">
+      <div class="cover-ribbon"></div>
+      <div class="cover-content">
+        <div class="cover-decor-top">✦ &#10022; &#10022; ✦</div>
+        <p class="cover-pre-title">a story that began with</p>
+        <h1 class="cover-title">Tshepi</h1>
+        <p class="cover-subtitle">a conversation</p>
+        <div class="cover-divider">&#10022; &#9829; &#10022;</div>
+        <p class="cover-hint">— a scrapbook of the night time forgot —</p>
+        <button class="open-btn" id="openBtn">
+          <span>Open</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="cover-decor-bottom">
+        <span class="decor-heart">&hearts;</span>
+        <span class="decor-star">&#10022;</span>
+        <span class="decor-heart">&hearts;</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SECTION 2: THE MEETING ═══════════════ -->
+    <section id="meeting" class="page meeting-page" data-page="The Night">
+      <video class="meeting-video-bg" src="Media/Video Background.mp4" muted loop playsinline preload="metadata"></video>
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">"beauty in the eyes of the beholder"</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <div class="meeting-layout">
+          <div class="polaroid meeting-polaroid" data-rotate="-2">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/beauty in the eyes of the beholder.jpeg" alt="beauty in the eyes of the beholder" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">beauty in the eyes of the beholder</p>
+          </div>
+          <div class="story-box">
+            <div class="story-text" id="storyText"></div>
+            <div class="story-sig">— Big Hands</div>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">1</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 3: GALLERY ═══════════════ -->
+    <section id="gallery" class="page gallery-page" data-page="Gallery">
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">the gallery</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <p class="gallery-intro">drag them around. click to look closer.</p>
+        <div class="gallery-scatter" id="galleryScatter">
+          <div class="polaroid gallery-item" data-rotate="3" data-idx="0">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/captivating eyes.jpeg" alt="captivating eyes" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">captivating eyes</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="-4" data-idx="1">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/Beautiful churchgirl.jpeg" alt="Beautiful churchgirl" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">Beautiful churchgirl</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="2" data-idx="2">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/clean girl vibes.jpeg" alt="clean girl vibes" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">clean girl vibes</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="-1" data-idx="3">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/Mirror pic.jpeg" alt="Mirror pic" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">Mirror pic</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="5" data-idx="4">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/No%20face%20%2C%20no%20case.jpeg" alt="No face, no case" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">No face, no case</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="-3" data-idx="5">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/Ubforced%20Smiles.jpeg" alt="Ubforced Smiles" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">Ubforced Smiles</p>
+          </div>
+          <div class="polaroid gallery-item" data-rotate="1" data-idx="6">
+            <div class="polaroid-img-wrapper">
+              <img src="Media/beauty in the eyes of the beholder.jpeg" alt="beauty in the eyes of the beholder" loading="lazy" />
+            </div>
+            <p class="polaroid-caption">beauty in the eyes of the beholder</p>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">2</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 4: FLIP CARDS ═══════════════ -->
+    <section id="reasons" class="page reasons-page" data-page="Reasons">
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">things I like about you</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <p class="reasons-intro">tap a card to flip it</p>
+        <div class="cards-grid">
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-eye"></i></span><span>Your Eyes</span></div>
+              <div class="flip-back"><p>I got lost in them that night. Still finding my way back.</p></div>
+            </div>
+          </div>
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-smile"></i></span><span>Your Smile</span></div>
+              <div class="flip-back"><p>Unforced. Real. The kind that makes mornings worth waking up for.</p></div>
+            </div>
+          </div>
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-comment-dots"></i></span><span>Your Talk</span></div>
+              <div class="flip-back"><p>We talked until the sun came up and it still wasn't enough.</p></div>
+            </div>
+          </div>
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-cross"></i></span><span>Your Faith</span></div>
+              <div class="flip-back"><p>Beautiful churchgirl. That beauty runs deeper than the surface.</p></div>
+            </div>
+          </div>
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-spa"></i></span><span>Your Vibe</span></div>
+              <div class="flip-back"><p>Clean girl energy. Effortlessly you. That's the best kind of beautiful.</p></div>
+            </div>
+          </div>
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front"><span class="flip-icon"><i class="fas fa-heart"></i></span><span>The Real You</span></div>
+              <div class="flip-back"><p>No face, no case — but I'd know you anywhere. The real you is enough.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">3</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 5: LOVE LETTER ═══════════════ -->
+    <section id="letter" class="page letter-page" data-page="The Letter">
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">a letter for you</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <div class="letter-container">
+          <div class="envelope" id="envelope">
+            <div class="envelope-flap" id="envFlap"></div>
+            <div class="envelope-body">
+              <div class="envelope-seal" id="envSeal">
+                <span class="seal-wax">&hearts;</span>
+              </div>
+            </div>
+          </div>
+          <p class="envelope-hint" id="envHint">tap the seal to open</p>
+          <div class="letter-paper" id="letterPaper">
+            <div class="letter-content">
+              <p class="letter-date">the night time forgot</p>
+              <div class="letter-body" id="letterBody"></div>
+              <p class="letter-close">— Big Hands</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">4</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 6: QUIZ ═══════════════ -->
+    <section id="quiz" class="page quiz-page" data-page="Quiz">
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">how well do you know?</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <div class="quiz-container" id="quizContainer">
+          <div class="quiz-start" id="quizStart">
+            <p class="quiz-intro">A little quiz about the night that started it all.</p>
+            <button class="quiz-btn" id="quizStartBtn">Let's Go</button>
+          </div>
+          <div class="quiz-game hidden" id="quizGame">
+            <div class="quiz-progress">
+              <span class="quiz-q-counter" id="qCounter">1 / 5</span>
+              <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+            </div>
+            <p class="quiz-question" id="quizQuestion"></p>
+            <div class="quiz-options" id="quizOptions"></div>
+          </div>
+          <div class="quiz-result hidden" id="quizResult">
+            <div class="result-icon" id="resultIcon">&#127881;</div>
+            <p class="result-score" id="resultScore"></p>
+            <p class="result-msg" id="resultMsg"></p>
+            <button class="quiz-btn" id="quizRestartBtn">Play Again</button>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">5</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 7: MEMORY GAME ═══════════════ -->
+    <section id="memory" class="page memory-page" data-page="Memory">
+      <div class="page-inner">
+        <div class="page-header">
+          <div class="tape tape-left"></div>
+          <h2 class="section-title">match the memory</h2>
+          <div class="tape tape-right"></div>
+        </div>
+        <div class="memory-container" id="memoryContainer">
+          <div class="memory-start" id="memoryStart">
+            <p class="memory-intro">Find the matching pairs. Four memories from our night.</p>
+            <button class="memory-btn" id="memoryStartBtn">Play</button>
+          </div>
+          <div class="memory-board hidden" id="memoryBoard">
+            <div class="memory-stats">
+              <span>Moves: <strong id="moveCount">0</strong></span>
+              <span>Pairs: <strong id="pairCount">0</strong> / 4</span>
+            </div>
+            <div class="memory-grid" id="memoryGrid"></div>
+          </div>
+          <div class="memory-win hidden" id="memoryWin">
+            <p class="win-title">&#127881; You did it!</p>
+            <p class="win-sub" id="winSub"></p>
+            <button class="memory-btn" id="memoryRestartBtn">Again</button>
+          </div>
+        </div>
+      </div>
+      <span class="page-number">6</span>
+    </section>
+
+    <!-- ═══════════════ SECTION 8: FINALE ═══════════════ -->
+    <section id="finale" class="page finale-page" data-page="To Many More">
+      <canvas id="confettiCanvas"></canvas>
+      <div class="page-inner finale-content">
+        <div class="finale-box">
+          <div class="finale-decor">&#10022; &#9829; &#10022;</div>
+          <h2 class="finale-title">to many more nights</h2>
+          <p class="finale-subtitle">that turn into mornings</p>
+          <div class="finale-divider">~ ~ ~</div>
+          <p class="finale-text">
+            Some meetings don't need a story.<br />
+            Some meetings <em>are</em> the story.
+          </p>
+          <p class="finale-sig">— Big Hands</p>
+          <div class="finale-decor">&#9829; &#10022; &#9829;</div>
+        </div>
+      </div>
+      <span class="page-number">7</span>
+    </section>
+
+  </main>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="js/particles.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/confetti.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

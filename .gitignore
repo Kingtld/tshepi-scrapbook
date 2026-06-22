@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+download.js
+1782124635580-player-script.js
+1782124635589-player-script.js
